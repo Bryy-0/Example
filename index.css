@@ -1,0 +1,68 @@
+/* Color Variables based on your image */
+:root {
+    --bg-peach: #f9f0eb;
+    --coral: #e97451;
+    --dark-text: #4a4a4a;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Specific background for the landing page */
+.landing-body {
+    background-color: var(--bg-peach);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.logo-text {
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.main-title {
+    font-size: 3rem;
+    color: var(--coral);
+    margin: 10px 0;
+}
+
+.sub-title {
+    font-size: 1.5rem;
+    color: var(--coral);
+    opacity: 0.8;
+    margin-bottom: 40px;
+}
+
+/* The "Start My Alkansiya" Button */
+.cta-button {
+    display: inline-block;
+    background-color: var(--coral);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px; /* Rounded pill shape from image */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.cta-button:hover {
+    background-color: #d66340;
+    transform: scale(1.05);
+}
+
+/* Styles for your Registration/Login forms (reusing existing) */
+.form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    width: 350px;
+}
