@@ -20,7 +20,7 @@
             <label for="password">Password</label>
             <input type="password" id="password" name="password" minlength="8" required>
 
-            <button type="submit" name="login">Login</button>
+            <button type="submit" onclick="handleAuth()" name="login">Login</button>
             <p style="text-align: center; margin-top: 15px; font-size: 0.8rem;">
                 Don't have an account? <a href="#" onclick="showForm('register-form')">Register</a>
             </p>
@@ -42,7 +42,7 @@
             <label for="password-reg">Password</label>
             <input type="password" id="password-reg" name="password" minlength="8" required>
 
-            <button type="submit" name="register">Register</button>
+            <button type="submit" onclick="handleAuth()" name="register">Register</button>
 
             <p style="text-align: center; margin-top: 15px; font-size: 0.8rem;">
                 Already have an account? <a href="#" onclick="showForm('login-form')">Login</a>

@@ -4,3 +4,8 @@ function showForm(formId) {
     });
     document.getElementById(formId).classList.add("active");
 }
+
+function handleAuth() {
+    // You can add logic here later to check if inputs are empty
+    window.location.href = "home.html";
+}
