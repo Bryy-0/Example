@@ -1,68 +1,116 @@
-/* Color Variables based on your image */
+/* --- Global Variables --- */
 :root {
-    --bg-peach: #f9f0eb;
-    --coral: #e97451;
-    --dark-text: #4a4a4a;
+    --coral: #ED7859;
+    --dark-charcoal: #2C2C2C;
+    --teal: #76BCAD;
+    --off-white: #FDF7F5;
 }
 
+/* Basic Reset & Font Fallback */
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-/* Specific background for the landing page */
-.landing-body {
-    background-color: var(--bg-peach);
+    font-family: 'Hansief', 'Poppins', Arial, sans-serif;
+    background-color: #f9f0eb;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
+}
+
+/* Form Container with "Sticker" Depth */
+.form-box {
+    width: 90%;
+    max-width: 450px;
+    padding: 35px;
+    background: var(--coral);
+    border: 3px solid var(--dark-charcoal); /* Matches your jar/button style */
+    border-radius: 20px;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.1); /* Flat depth shadow */
+    display: none;
+    box-sizing: border-box;
+}
+
+.form-box.active {
+    display: block;
+    animation: slideUp 0.4s ease-out;
+}
+
+h2 {
     text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 0;
 }
 
-.logo-text {
+/* Label and Input Styling */
+label {
+    display: block;
+    margin-bottom: 8px;
     font-weight: bold;
-    letter-spacing: 2px;
-    color: #333;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-transform: uppercase;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
     margin-bottom: 20px;
+    border: 2px solid var(--dark-charcoal);
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: var(--off-white); 
+    font-size: 1rem;
+    color: var(--dark-charcoal);
+    transition: transform 0.2s;
 }
 
-.main-title {
-    font-size: 3rem;
-    color: var(--coral);
-    margin: 10px 0;
+input:focus {
+    outline: none;
+    border-color: var(--teal);
+    transform: translateY(-2px);
 }
 
-.sub-title {
-    font-size: 1.5rem;
-    color: var(--coral);
-    opacity: 0.8;
-    margin-bottom: 40px;
-}
-
-/* The "Start My Alkansiya" Button */
-.cta-button {
-    display: inline-block;
-    background-color: var(--coral);
+/* The "Big Dark" Button */
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--dark-charcoal);
     color: white;
-    padding: 15px 40px;
-    border-radius: 50px; /* Rounded pill shape from image */
-    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
     font-weight: bold;
-    font-size: 1.2rem;
-    transition: transform 0.2s, background-color 0.2s;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
 }
 
-.cta-button:hover {
-    background-color: #d66340;
-    transform: scale(1.05);
+button:hover {
+    background-color: #404040;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-/* Styles for your Registration/Login forms (reusing existing) */
-.form-container {
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    width: 350px;
+/* Error Message Redesign */
+.error-messsage {
+    padding: 12px;
+    background: #FFEBEE;
+    border: 2px solid #D32F2F;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #D32F2F;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Helper Animation */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
