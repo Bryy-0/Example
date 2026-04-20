@@ -4,7 +4,7 @@ const _supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhY
 const supabaseClient = supabase.createClient(_supabaseUrl, _supabaseAnonKey);
 
 // --- Jar & Data Constants ---
-const goal = 1000;
+const goal = 8000;
 let currentSaved = 0;
 
 // --- Initialize Page ---
