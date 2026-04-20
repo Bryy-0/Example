@@ -17,9 +17,8 @@ function showForm(formId) {
     document.getElementById(formId).classList.add('active');
 }
 
-// --- 📝 UPDATED REGISTRATION LOGIC ---
+// --- 📝 REGISTRATION LOGIC ---
 const registerForm = document.querySelector('#register-form form');
-
 registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -28,42 +27,39 @@ registerForm.addEventListener('submit', async (e) => {
     const phone = document.getElementById('phone').value;
     const plainPassword = document.getElementById('password-reg').value;
 
-    // 1. Generate a "Salt" and Hash the password
-    // The number 10 is the "cost factor" (standard security level)
+    // Hash the password
     const salt = dcodeIO.bcrypt.genSaltSync(10);
     const hashedPassword = dcodeIO.bcrypt.hashSync(plainPassword, salt);
 
-    // 2. Insert into Supabase using the hashed password
-    const { data, error } = await supabaseClient
+    const { error } = await supabaseClient
         .from('donors')
         .insert([
             { 
                 name: name, 
                 email: email, 
                 phone_number: phone, 
-                password: hashedPassword, // Send the scrambled version!
+                password: hashedPassword, 
                 total_saved: 0 
             }
         ]);
 
     if (error) {
-        alert("Registration failed: " + error.message);
+        console.error("Registration failed:", error.message);
     } else {
-        alert("Success! Password has been hashed and stored.");
-        showForm('login-form');
+        // Redirect directly to home after successful registration
+        window.location.href = "home.html";
     }
 });
 
-// --- 🔑 UPDATED LOGIN LOGIC ---
+// --- 🔑 LOGIN LOGIC ---
 const loginForm = document.querySelector('#login-form form');
-
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const email = document.getElementById('email').value;
     const inputPassword = document.getElementById('password').value;
 
-    // 1. Fetch the user record by email only
+    // Fetch user by email
     const { data: user, error } = await supabaseClient
         .from('donors')
         .select('*')
@@ -71,18 +67,18 @@ loginForm.addEventListener('submit', async (e) => {
         .single();
 
     if (error || !user) {
-        alert("Invalid email or password");
+        console.error("User not found or connection error");
         return;
     }
 
-    // 2. Compare the input password with the hashed password from the DB
+    // Compare hash
     const isPasswordCorrect = dcodeIO.bcrypt.compareSync(inputPassword, user.password);
 
     if (isPasswordCorrect) {
-        alert("Welcome back, " + user.name);
+        // Store name and redirect immediately
         sessionStorage.setItem('userName', user.name);
         window.location.href = "home.html";
     } else {
-        alert("Invalid email or password");
+        console.error("Invalid password attempt");
     }
 });
