@@ -597,16 +597,16 @@ body {
 }
 
 .climb-btn {
-    display: inline-block;
-    background-color: #ED7859; /* The orange color from your design */
+    background-color: var(--coral);
     color: white;
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    text-decoration: none;
-    border-radius: 15px; /* Rounded corners */
-    border: 2px solid #333; /* Dark border seen in screenshot */
-    font-weight: bold;
-    transition: transform 0.2s;
+    font-family: 'Hansief', sans-serif;
+    font-size: 2rem;
+    padding: 15px 50px;
+    border: 3px solid var(--dark-charcoal);
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 6px 6px 0px var(--dark-charcoal);
+    transition: 0.2s;
 }
 
 .climb-btn:hover {
@@ -615,7 +615,7 @@ body {
 
 /* Footer Styling */
 .main-footer {
-    background-color: #faf2f0; /* Matching the brand orange */
+    background-color: #ED7859; /* Matching the brand orange */
     color: white;
     padding: 40px 20px;
     text-align: center;
