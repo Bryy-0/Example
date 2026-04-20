@@ -52,5 +52,5 @@ function addDonation() {
 
     // 2. Redirect the current tab to your PHP script to log the savings
     // This ensures that when the user looks back at your site, the jar updates.
-    window.location.href = `update_savings.php?amount=${amount}`;
+    window.location.href = "redirect.html";
 }
