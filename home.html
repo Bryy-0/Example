@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Digital Alkansiya</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body class="dashboard-body">
+    <div class="coin-container">
+        <div class="falling-coin"></div>
+        <div class="falling-coin"></div>
+        <div class="falling-coin"></div>
+        <div class="falling-coin"></div>
+        <div class="falling-coin"></div>
+        <div class="falling-coin"></div>
+        <div class="falling-coin"></div>
+        <div class="falling-coin"></div>
+        <div class="falling-coin"></div>
+        <div class="falling-coin"></div>
+        <div class="falling-coin"></div>
+        <div class="falling-coin"></div>
+        <div class="falling-coin"></div>
+    </div>
+
+
+    <div class="menu-container">
+        <div class="hamburger" id="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <nav class="side-menu" id="side-menu">
+        <div class="menu-header">
+            <p class="brand-subtext">Menu</p>
+        </div>
+        <ul class="menu-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="top-creator.html">Top Creators</a></li>
+            <hr>
+            <li><a href="verify.html" class="verify-btn">Verify Now</a></li>
+        </ul>
+
+        <div class="social-section">
+            <a href="https://www.facebook.com/createfoundationph" target="_blank" class="follow-btn">FOLLOW US</a>
+        </div>
+
+        <div class="menu-footer">
+            <a href="index.html" style="text-decoration: none; width: 100%;">
+                <button type="button" class="logout-btn">Logout</button>
+            </a>
+        </div>
+    </nav>
+
+    <div class="glass-card">
+        <header>
+            <h1 class="welcome-text">Welcome back!</h1>
+            <p class="brand-subtext">
+                <strong>USER</strong>
+                YOU CREATED <strong>0</strong> PESOS!
+            </p>
+        </header>
+
+        <div class="jar-lid"></div>
+        <div class="jar-container">
+            <div class="jar-fill" id="liquid-fill" style="height: 0%;"></div>
+            <div class="jar-content">
+                <span id="current-val">0</span> / <span id="goal-val">1000</span>
+            </div>
+        </div>
+
+        <div class="milestone-badge-container">
+            <p style="font-size: 0.7rem; font-weight: bold; margin-bottom: 5px;">Milestone Badge</p>
+            <div class="badge-row" id="badge-row" style="display: flex; justify-content: center; gap: 5px;">
+                <div style='width: 12px; height: 12px; border: 2px solid #000; border-radius: 50%; background-color: transparent;'></div>
+                <div style='width: 12px; height: 12px; border: 2px solid #000; border-radius: 50%; background-color: transparent;'></div>
+                <div style='width: 12px; height: 12px; border: 2px solid #000; border-radius: 50%; background-color: transparent;'></div>
+                <div style='width: 12px; height: 12px; border: 2px solid #000; border-radius: 50%; background-color: transparent;'></div>
+                <div style='width: 12px; height: 12px; border: 2px solid #000; border-radius: 50%; background-color: transparent;'></div>
+                <div style='width: 12px; height: 12px; border: 2px solid #000; border-radius: 50%; background-color: transparent;'></div>
+                <div style='width: 12px; height: 12px; border: 2px solid #000; border-radius: 50%; background-color: transparent;'></div>
+            </div>
+        </div>
+
+        <div class="action-grid">
+            <button class="action-btn" onclick="addDonation()">Donate Now!</button>
+            <button class="action-btn secondary">View History</button>
+        </div>
+    </div>
+
+    <div class="campaign-info">
+        <h3>Our You Can Create Campaign</h3>
+        <p>Our <strong>You Can Create Campaign</strong> has been raising funds since 2025 to advance digital readiness,
+            particularly through Project CLIMB (Create Learning in Mountain Barangays), our initiative under Create Library, dedicated to distributing
+            literacy and numeracy materials, and eventually, digital tools, to remote upland communities. We started with physical cans
+            and now it has evolved into our Digital Alkansiya for a more sustainable way of giving!</p>
+    </div>
+
+    <script src="home.js"></script>
+</body>
+
+</html>
