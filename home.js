@@ -3,26 +3,21 @@ const _supabaseUrl = 'https://ijzaiwjztqyigsorzstu.supabase.co';
 const _supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqemFpd2p6dHF5aWdzb3J6c3R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzMDc1MzIsImV4cCI6MjA5MTg4MzUzMn0.7Vyln1RMOX-mwkRa_3CRm136yK3uMYvD1JgVs9X-Lqs';
 const supabaseClient = supabase.createClient(_supabaseUrl, _supabaseAnonKey);
 
-// --- Jar & Data Constants ---
-const goal = 8000;
+const goal = 8000; // Matches your current goal
 let currentSaved = 0;
 
-// --- Initialize Page ---
 window.addEventListener('DOMContentLoaded', async () => {
-    // 1. Check who is logged in
     const savedName = sessionStorage.getItem('userName');
-
     if (!savedName) {
-        // Redirect to login if no session found
         window.location.href = "form.html";
         return;
     }
 
-    // 2. Update Greeting
+    // Update greeting
     const nameDisplay = document.getElementById('user-display-name');
     if (nameDisplay) nameDisplay.textContent = savedName;
 
-    // 3. Fetch User Data from Supabase
+    // Fetch User Data
     const { data, error } = await supabaseClient
         .from('donors')
         .select('total_saved')
@@ -30,18 +25,38 @@ window.addEventListener('DOMContentLoaded', async () => {
         .single();
 
     if (error) {
-        console.error("Error fetching balance:", error.message);
+        console.error("Error:", error.message);
     } else if (data) {
         currentSaved = data.total_saved;
         
-        // 4. Update the text display and the Jar animation
+        // Update numerical text
         const valElement = document.getElementById('current-val');
         if (valElement) {
-            valElement.innerText = currentSaved;
+            valElement.innerText = currentSaved.toLocaleString();
         }
-        updateJar();
+
+        // Trigger visual update with a tiny delay to ensure DOM is ready
+        setTimeout(updateJar, 100);
     }
 });
+
+function updateJar() {
+    const liquid = document.getElementById('liquid-fill');
+    const percentText = document.getElementById('percent-text');
+    
+    if (liquid && percentText) {
+        // Calculate percentage (0 to 100)
+        const percent = Math.min(Math.floor((currentSaved / goal) * 100), 100);
+        
+        // 1. Update the Height (Liquid)
+        liquid.style.height = percent + "%";
+        
+        // 2. Update the Text inside the jar
+        percentText.textContent = percent + "%";
+        
+        console.log(`Jar Updated: ${percent}%`); // Debugging line
+    }
+}
 
 // --- Jar Visual Logic ---
 function updateJar() {
