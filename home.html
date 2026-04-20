@@ -58,22 +58,31 @@
         </div>
     </nav>
 
-    <div class="glass-card">
-        <header>
-            <h1 class="welcome-text">Welcome back!</h1>
-            <p class="brand-subtext">
-                <strong>USER</strong>
-                YOU CREATED <strong>0</strong> PESOS!
-            </p>
-        </header>
+<div class="donation-card">
+    <div class="card-left">
+        <p class="donation-label">User's Donation Progress</p>
+        <div class="amount-display">
+            <h2 class="current-amount">₱<span id="current-val">4,000</span>.00</h2>
+            <p class="goal-amount">/ ₱<span id="goal-val">8,000</span>.00</p>
+        </div>
+        
+        <a href="profile.html" class="profile-link-btn">Your Profile</a>
+    </div>
 
+    <div class="card-right">
         <div class="jar-lid"></div>
         <div class="jar-container">
-            <div class="jar-fill" id="liquid-fill" style="height: 0%;"></div>
+            <div class="jar-fill" id="liquid-fill" style="height: 50%;"></div>
             <div class="jar-content">
-                <span id="current-val">0</span> / <span id="goal-val">1000</span>
+                <span id="percent-text">50%</span>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="main-action-area">
+    <button class="donate-now-btn" onclick="addDonation()">Donate Now!</button>
+</div>
 
         <div class="milestone-badge-container">
             <p style="font-size: 0.7rem; font-weight: bold; margin-bottom: 5px;">Milestone Badge</p>

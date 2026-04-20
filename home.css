@@ -74,45 +74,127 @@ body {
     100% { transform: translateY(110vh) rotate(360deg); }
 }
 
-/* Glassmorphism Card */
-/* 1. Remove the Square Background from the Glass Card */
-.glass-card {
-    background: transparent; /* Removed the white/glass background */
-    backdrop-filter: none;    /* Removed the blur */
-    -webkit-backdrop-filter: none;
-    border: none;             /* Removed the border */
-    padding: 10px;            /* Tightened padding */
-    width: 425px;
-    box-shadow: none;         /* Removed the box shadow */
-    text-align: center;
-    position: relative;
-}
-
-/* Refined floating "Can" styles to pop against the pattern */
-.jar-container {
-    width: 240px;
-    height: 340px;
-    background: #FFFFFF; /* Brighter white so it stands out from the pattern */
-    border: 5px solid #000;
-    border-radius: 40px 40px 60px 60px;
-    margin: 0 auto 30px auto;
-    position: relative;
-    overflow: hidden;
-    /* Stronger shadow so the 'Can' sits 'above' the coins */
-    box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.15); 
-    z-index: 1;
-}
-
-/* Ensure the lid matches the new border weight */
-.jar-lid {
-    width: 150px;
-    height: 35px;
-    background: #FFFFFF;
-    border: 5px solid #000;
-    border-radius: 10px 10px 2px 2px;
-    margin: 0 auto -5px auto;
+/* --- NEW DONATION CARD LAYOUT --- */
+.donation-card {
+    background-color: var(--coral); /* #ED7859 from your variables */
+    width: 100%;
+    max-width: 700px;
+    border-radius: 40px;
+    padding: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     position: relative;
     z-index: 2;
+    margin-top: 20px;
+}
+
+.card-left {
+    flex: 1;
+    color: white;
+    text-align: left;
+}
+
+.donation-label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.current-amount {
+    font-size: 4rem;
+    margin: 0;
+    font-weight: 900;
+}
+
+.goal-amount {
+    font-size: 1.2rem;
+    margin-top: -5px;
+    opacity: 0.8;
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* Profile Button inside the card */
+.profile-link-btn {
+    display: inline-block;
+    background-color: var(--dark-charcoal);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 12px;
+    margin-top: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.profile-link-btn:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+}
+
+/* --- JAR POSITIONING --- */
+.card-right {
+    flex: 0 0 200px; /* Fixed width for the jar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jar-container {
+    width: 160px; /* Slightly smaller to fit the card */
+    height: 220px;
+    background: #FFFFFF;
+    border: 4px solid #2F2F2F;
+    border-radius: 30px 30px 50px 50px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jar-lid {
+    width: 100px;
+    height: 25px;
+    background: #FFFFFF;
+    border: 4px solid #2F2F2F;
+    border-radius: 8px 8px 2px 2px;
+    margin-bottom: -5px;
+    z-index: 3;
+}
+
+.jar-content {
+    z-index: 4;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--dark-charcoal);
+}
+
+/* --- BOTTOM DONATE BUTTON --- */
+.main-action-area {
+    margin-top: 40px;
+    z-index: 2;
+}
+
+.donate-now-btn {
+    background-color: var(--coral);
+    color: white;
+    font-family: 'Hansief', sans-serif;
+    font-size: 2rem;
+    padding: 15px 50px;
+    border: 3px solid var(--dark-charcoal);
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 6px 6px 0px var(--dark-charcoal);
+    transition: 0.2s;
+}
+
+.donate-now-btn:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0px var(--dark-charcoal);
 }
 
 /* 4. Make the Welcome Text stand out without a box */
