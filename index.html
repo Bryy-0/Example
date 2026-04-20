@@ -3,47 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donor List</title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <title>Digital Alkansiya</title>
+    <link rel="stylesheet" href="style-landing.css">
 </head>
-<body>
+<body class="landing-body">
 
-    <h1>Donors Data</h1>
-    <ul id="donor-list">Loading donors...</ul>
+    <div class="landing-content">
+        <div class="logo-text">CREATE FOUNDATION</div>
+        
+        <h1 class="main-title">Digital Alkansiya</h1>
+        <p class="sub-title">Join the 8-week challenge</p>
 
-    <script>
-    // 1. Rename 'supabase' to 'supabaseClient' here
-    const _supabaseUrl = 'https://ijzaiwjztqyigsorzstu.supabase.co'
-    const _supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqemFpd2p6dHF5aWdzb3J6c3R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzMDc1MzIsImV4cCI6MjA5MTg4MzUzMn0.7Vyln1RMOX-mwkRa_3CRm136yK3uMYvD1JgVs9X-Lqs'
-    
-    // We use 'supabase.createClient' but store it in 'supabaseClient'
-    const supabaseClient = supabase.createClient(_supabaseUrl, _supabaseAnonKey)
+        <a href="form.html" class="cta-button">START MY ALKANSIYA</a>
+    </div>
 
-    async function fetchDonors() {
-        // 2. Use the new name 'supabaseClient' here too
-        const { data, error } = await supabaseClient
-            .from('donors')
-            .select('name, total_saved')
-
-        const listElement = document.getElementById('donor-list');
-
-        if (error) {
-            console.error(error);
-            listElement.innerHTML = `<li>Error: ${error.message}</li>`;
-            return;
-        }
-
-        listElement.innerHTML = ''; 
-        if (data) {
-            data.forEach(donor => {
-                const li = document.createElement('li');
-                li.textContent = `${donor.name} - Saved: ${donor.total_saved}`;
-                listElement.appendChild(li);
-            });
-        }
-    }
-
-    fetchDonors();
-</script>
 </body>
-</html>
+</html> 
