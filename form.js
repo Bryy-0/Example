@@ -54,27 +54,35 @@ registerForm.addEventListener('submit', async (e) => {
     }
 });
 
-// --- 🔑 LOGIN LOGIC ---
+// --- 🔑 UPDATED LOGIN LOGIC ---
 const loginForm = document.querySelector('#login-form form');
+
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const inputPassword = document.getElementById('password').value;
 
-    const { data, error } = await supabaseClient
+    // 1. Fetch the user record by email only
+    const { data: user, error } = await supabaseClient
         .from('donors')
         .select('*')
         .eq('email', email)
-        .eq('password', password)
         .single();
 
-    if (error || !data) {
-        alert("Login failed! Check your email or password.");
-    } else {
-        alert("Welcome, " + data.name);
-        // Save the user's name so we can show it on home.html
-        sessionStorage.setItem('userName', data.name);
+    if (error || !user) {
+        alert("Invalid email or password");
+        return;
+    }
+
+    // 2. Compare the input password with the hashed password from the DB
+    const isPasswordCorrect = dcodeIO.bcrypt.compareSync(inputPassword, user.password);
+
+    if (isPasswordCorrect) {
+        alert("Welcome back, " + user.name);
+        sessionStorage.setItem('userName', user.name);
         window.location.href = "home.html";
+    } else {
+        alert("Invalid email or password");
     }
 });
