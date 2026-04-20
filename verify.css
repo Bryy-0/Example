@@ -1,0 +1,117 @@
+/* verify.css */
+
+/* 1. Animated Gradient Background (Inherited consistency) */
+body {
+    margin: 0;
+    padding: 0;
+    /* Updated Font Fallback */
+    font-family: 'Hansief', 'Poppins', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    
+    background: linear-gradient(-45deg, #f9f0eb, #fce4ec, #e97451, #ffab91);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 2. Verify Container with "Sticker" Depth */
+.verify-container {
+    background-color: #ED7859; 
+    padding: 3.5rem 2.5rem;
+    width: 90%;
+    max-width: 450px;
+    border: 4px solid #000; /* Standardized thick border */
+    text-align: center;
+    border-radius: 20px;
+    /* Hard shadow for that "brutalist" look */
+    box-shadow: 12px 12px 0px rgba(0,0,0,0.15); 
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+/* 3. Elements Styling */
+.verify-header {
+    /* Set to Hansief via the body font, but ensuring weight here */
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #000;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.verify-description {
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+.verify-input {
+    width: 100%;
+    padding: 18px;
+    background-color: #FDF7F5;
+    border: 3px solid #000;
+    font-size: 1.5rem; /* Larger for easy code entry */
+    font-weight: bold;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+    border-radius: 12px;
+    text-align: center;
+    letter-spacing: 5px; /* Spacing for verification digits */
+    transition: transform 0.2s;
+}
+
+.verify-input:focus {
+    outline: none;
+    transform: scale(1.02);
+    border-color: #2C2C2C;
+}
+
+.verify-btn {
+    width: 100%;
+    background-color: #2C2C2C; /* Dark button for high contrast */
+    color: #fff;
+    border: 3px solid #000;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    border-radius: 12px;
+}
+
+.verify-btn:hover {
+    background-color: #404040;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.login-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s;
+}
+
+.login-link:hover {
+    border-bottom: 2px solid #000;
+}
