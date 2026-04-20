@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - Digital Alkansiya</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="top-creator.css">
+</head>
+
+<body class="dashboard-body">
+
+    <div class="menu-container">
+        <div class="hamburger" id="hamburger-icon" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
+    <nav class="side-menu" id="side-menu">
+        <div class="menu-header">
+            <p class="brand-subtext">Menu</p>
+        </div>
+        <ul class="menu-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="top-creator.html" class="active">Top Creators</a></li>
+            <hr>
+            <li><a href="verify.html" class="verify-btn">Verify Now</a></li>
+        </ul>
+        <div class="social-section">
+            <a href="https://www.facebook.com/createfoundationph" target="_blank" class="follow-btn">FOLLOW US</a>
+        </div>
+        <div class="menu-footer">
+            <a href="index.html" style="text-decoration: none; width: 100%;">
+                <button type="button" class="logout-btn">Logout</button>
+            </a>
+        </div>
+    </nav>
+
+    <div class="leaderboard-wrapper">
+        <h1 class="leaderboard-header">TOP CREATORS</h1>
+
+        <table class="leaderboard-table">
+            <thead>
+                <tr>
+                    <th class="header-main coral" colspan="1">Total Community Collection</th>
+                    <th class="header-main coral" colspan="1">No. of Users</th>
+                </tr>
+                <tr>
+                    <th class="header-sub" colspan="1">Ranking</th>
+                    <th class="header-sub" colspan="1">Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Creator One</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Creator Two</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Creator Three</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Creator Four</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Creator Five</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Creator Six</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Creator Seven</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Creator Eight</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Creator Nine</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Creator Ten</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="footer-row green" colspan="1">YOUR RANKING</td>
+                    <td class="footer-row green" colspan="1">Creator [Name]</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script>
+        // Menu toggle script (Matching home.html)
+        function toggleMenu() {
+            const menu = document.getElementById('side-menu');
+            const icon = document.getElementById('hamburger-icon');
+            menu.classList.toggle('active');
+            icon.classList.toggle('open');
+        }
+    </script>
+</body>
+
+</html>
