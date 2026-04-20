@@ -610,7 +610,8 @@ body {
 }
 
 .climb-btn:hover {
-    transform: scale(1.05);
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0px var(--dark-charcoal);
 }
 
 /* Footer Styling */
