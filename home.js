@@ -44,17 +44,21 @@ function updateJar() {
     const liquid = document.getElementById('liquid-fill');
     const percentText = document.getElementById('percent-text');
     
+    // Check if both elements exist in your home.html
     if (liquid && percentText) {
-        // Calculate percentage (0 to 100)
+        // 1. Calculate the percentage based on your 8,000 goal
         const percent = Math.min(Math.floor((currentSaved / goal) * 100), 100);
         
-        // 1. Update the Height (Liquid)
+        // 2. Update the CSS height of the liquid
         liquid.style.height = percent + "%";
         
-        // 2. Update the Text inside the jar
-        percentText.textContent = percent + "%";
+        // 3. Overwrite the hard-coded "0%" with the dynamic calculation
+        percentText.innerText = percent + "%";
         
-        console.log(`Jar Updated: ${percent}%`); // Debugging line
+        // Debugging: check your browser console (F12) to see this log
+        console.log("Visuals updated to:", percent + "%");
+    } else {
+        console.error("Could not find liquid-fill or percent-text IDs in HTML");
     }
 }
 
