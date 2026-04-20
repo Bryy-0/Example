@@ -5,23 +5,23 @@ function showForm(formId) {
     document.getElementById(formId).classList.add("active");
 }
 
-// Load the Supabase Client
-const _supabaseUrl = 'https://ijzaiwjztqyigsorzstu.supabase.co'
-const _supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqemFpd2p6dHF5aWdzb3J6c3R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzMDc1MzIsImV4cCI6MjA5MTg4MzUzMn0.7Vyln1RMOX-mwkRa_3CRm136yK3uMYvD1JgVs9X-Lqs' // Update this!
-const supabaseClient = supabase.createClient(_supabaseUrl, _supabaseAnonKey)
+// 1. Initialize Connection
+const _supabaseUrl = 'https://ijzaiwjztqyigsorzstu.supabase.co'; // From your screenshot
+const _supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqemFpd2p6dHF5aWdzb3J6c3R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzMDc1MzIsImV4cCI6MjA5MTg4MzUzMn0.7Vyln1RMOX-mwkRa_3CRm136yK3uMYvD1JgVs9X-Lqs'; // Replace this!
+const supabaseClient = supabase.createClient(_supabaseUrl, _supabaseAnonKey);
 
-// Function to switch between Login and Register views
+// Toggle between Login and Register
 function showForm(formId) {
     document.querySelectorAll('.form-box').forEach(box => box.classList.remove('active'));
     document.getElementById(formId).classList.add('active');
 }
 
-// --- REGISTRATION LOGIC ---
+// --- 📝 REGISTRATION LOGIC ---
 const registerForm = document.querySelector('#register-form form');
 registerForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Stop page from reloading
+    e.preventDefault(); // Stop page refresh
 
-    const name = document.getElementById('name').value;
+    const fullName = document.getElementById('name').value;
     const email = document.getElementById('email-reg').value;
     const phone = document.getElementById('phone').value;
     const password = document.getElementById('password-reg').value;
@@ -29,18 +29,25 @@ registerForm.addEventListener('submit', async (e) => {
     const { data, error } = await supabaseClient
         .from('donors')
         .insert([
-            { name: name, email: email, phone_number: phone, password: password, total_saved: 0 }
+            { 
+                name: fullName, 
+                email: email, 
+                phone_number: phone, 
+                password: password, // Note: In real apps, passwords should be encrypted!
+                total_saved: 0 
+            }
         ]);
 
     if (error) {
-        alert("Error registering: " + error.message);
+        console.error("Registration Error:", error);
+        alert("Failed to register: " + error.message);
     } else {
-        alert("Account created successfully!");
-        window.location.href = "home.html"; // Redirect to home
+        alert("Registration Successful!");
+        showForm('login-form'); // Send them to login after registering
     }
 });
 
-// --- LOGIN LOGIC ---
+// --- 🔑 LOGIN LOGIC ---
 const loginForm = document.querySelector('#login-form form');
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -48,18 +55,19 @@ loginForm.addEventListener('submit', async (e) => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    // Check if a donor exists with this email AND password
     const { data, error } = await supabaseClient
         .from('donors')
         .select('*')
         .eq('email', email)
-        .eq('password', password)
-        .single(); // Get only one result
+        .eq('password', password) // Check if email and password match a row
+        .single(); // We only expect one user
 
     if (error || !data) {
-        alert("Invalid email or password");
+        alert("Invalid email or password!");
     } else {
         alert("Welcome back, " + data.name + "!");
+        // Store user info in session storage to use on the home page
+        sessionStorage.setItem('userName', data.name);
         window.location.href = "home.html";
     }
 });
