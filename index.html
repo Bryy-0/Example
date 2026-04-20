@@ -3,94 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supabase Registration</title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <style>
-        /* CSS: Basic Styling */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f7f6;
-            margin: 0;
-        }
-        .form-container {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            width: 300px;
-        }
-        h2 { text-align: center; color: #333; }
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box; /* Ensures padding doesn't affect width */
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #3ecf8e; /* Supabase Green */
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        button:hover { background-color: #34b27b; }
-        #message { margin-top: 15px; font-size: 0.9rem; text-align: center; }
-    </style>
+    <title>Digital Alkansiya</title>
+    <link rel="stylesheet" href="style-landing.css">
 </head>
-<body>
+<body class="landing-body">
 
-<div class="form-container">
-    <h2>Register</h2>
-    <form id="registration-form">
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button type="submit" id="submit-btn">Sign Up</button>
-    </form>
-    <div id="message"></div>
-</div>
-
-<script>
-    // 1. Initialize Supabase Client
-    // Replace these strings with your actual Supabase details
-    const SUPABASE_URL = 'ijzaiwjztqyigsorzstu';
-    const SUPABASE_ANON_KEY = 'vck_3Y1Vfi08nJISXBftH8Gd1t1pm18tp8bnOPitNwwFFHHUOpAixd1vxVvH';
-    
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // 2. Handle Form Submission
-    const form = document.getElementById('registration-form');
-    const messageDiv = document.getElementById('message');
-
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
+    <div class="landing-content">
+        <div class="logo-text">CREATE FOUNDATION</div>
         
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+        <h1 class="main-title">Digital Alkansiya</h1>
+        <p class="sub-title">Join the 8-week challenge</p>
 
-        // Call Supabase Auth signUp method
-        const { data, error } = await supabase.auth.signUp({
-            email: email,
-            password: password,
-        });
-
-        if (error) {
-            messageDiv.style.color = "red";
-            messageDiv.textContent = "Error: " + error.message;
-        } else {
-            messageDiv.style.color = "green";
-            messageDiv.textContent = "Success! Check your email for confirmation.";
-        }
-    });
-</script>
+        <a href="form.html" class="cta-button">START MY ALKANSIYA</a>
+    </div>
 
 </body>
-</html>
+</html> 
