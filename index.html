@@ -3,19 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Alkansiya</title>
-    <link rel="stylesheet" href="style-landing.css">
+    <title>Donor List</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-<body class="landing-body">
+<body>
 
-    <div class="landing-content">
-        <div class="logo-text">CREATE FOUNDATION</div>
-        
-        <h1 class="main-title">Digital Alkansiya</h1>
-        <p class="sub-title">Join the 8-week challenge</p>
+    <h1>Donors Data</h1>
+    <ul id="donor-list">Loading donors...</ul>
 
-        <a href="form.html" class="cta-button">START MY ALKANSIYA</a>
-    </div>
+    <script>
+        // 2. Initialize the Supabase client
+        const _supabaseUrl = 'https://ijzaiwjztqyigsorzstu.supabase.co'
+        const _supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlqemFpd2p6dHF5aWdzb3J6c3R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYzMDc1MzIsImV4cCI6MjA5MTg4MzUzMn0.7Vyln1RMOX-mwkRa_3CRm136yK3uMYvD1JgVs9X-Lqs'
+        const supabase = supabase.createClient(_supabaseUrl, _supabaseAnonKey)
 
+        // 3. Create a function to fetch your data
+        async function fetchDonors() {
+            const { data, error } = await supabase
+                .from('donors') // Matches your table name in the screenshot
+                .select('name, total_saved') // Only fetch what you need
+
+            const listElement = document.getElementById('donor-list');
+
+            if (error) {
+                listElement.innerHTML = `<li>Error: ${error.message}</li>`;
+                return;
+            }
+
+            // 4. Display the data in the HTML
+            listElement.innerHTML = ''; // Clear the loading message
+            data.forEach(donor => {
+                const li = document.createElement('li');
+                li.textContent = `${donor.name} - Saved: ${donor.total_saved}`;
+                listElement.appendChild(li);
+            });
+        }
+
+        // Run the function when the page loads
+        fetchDonors();
+    </script>
 </body>
-</html> 
+</html>
