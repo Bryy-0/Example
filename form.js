@@ -17,16 +17,23 @@ function showForm(formId) {
     document.getElementById(formId).classList.add('active');
 }
 
-// --- 📝 REGISTRATION LOGIC ---
+// --- 📝 UPDATED REGISTRATION LOGIC ---
 const registerForm = document.querySelector('#register-form form');
+
 registerForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const name = document.getElementById('name').value;
     const email = document.getElementById('email-reg').value;
     const phone = document.getElementById('phone').value;
-    const password = document.getElementById('password-reg').value;
+    const plainPassword = document.getElementById('password-reg').value;
 
+    // 1. Generate a "Salt" and Hash the password
+    // The number 10 is the "cost factor" (standard security level)
+    const salt = dcodeIO.bcrypt.genSaltSync(10);
+    const hashedPassword = dcodeIO.bcrypt.hashSync(plainPassword, salt);
+
+    // 2. Insert into Supabase using the hashed password
     const { data, error } = await supabaseClient
         .from('donors')
         .insert([
@@ -34,16 +41,15 @@ registerForm.addEventListener('submit', async (e) => {
                 name: name, 
                 email: email, 
                 phone_number: phone, 
-                password: password, 
+                password: hashedPassword, // Send the scrambled version!
                 total_saved: 0 
             }
         ]);
 
     if (error) {
-        console.error("Error details:", error);
         alert("Registration failed: " + error.message);
     } else {
-        alert("Success! Account created.");
+        alert("Success! Password has been hashed and stored.");
         showForm('login-form');
     }
 });
