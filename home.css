@@ -598,7 +598,7 @@ body {
 
 .climb-btn {
     display: inline-block;
-    background-color: #FF7043; /* The orange color from your design */
+    background-color: #ED7859; /* The orange color from your design */
     color: white;
     padding: 15px 40px;
     font-size: 1.2rem;
@@ -615,7 +615,7 @@ body {
 
 /* Footer Styling */
 .main-footer {
-    background-color: #FF7043; /* Matching the brand orange */
+    background-color: #ED7859; /* Matching the brand orange */
     color: white;
     padding: 40px 20px;
     text-align: center;
