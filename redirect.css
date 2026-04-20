@@ -1,0 +1,53 @@
+body {
+    background-color: #F5EFEB;
+    /* Matching the light cream background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    /* Adjust font as needed */
+    font-family: 'Hansief', 'Poppins', 'Arial Black', sans-serif;
+    text-align: center;
+}
+
+.success-container {
+    max-width: 80%;
+}
+
+.success-text {
+    color: #FF7043;
+    /* The coral/orange color from your image */
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.redirect-text {
+    color: #333;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.checkmark-circle {
+    width: 80px;
+    height: 80px;
+    background-color: #66BB6A;
+    /* Success green */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 5px solid white;
+}
+
+.checkmark {
+    color: white;
+    font-size: 3rem;
+}
