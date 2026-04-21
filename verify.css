@@ -39,15 +39,37 @@ body {
 }
 
 /* 3. Elements Styling */
+
+/* 3.1. Elements Styling - RESPONSIVE FIX */
 .verify-header {
-    /* Updated to Poppins */
     font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem;
+    /* Use a fluid font size or a slightly smaller base */
+    font-size: 2.8rem; 
     font-weight: 900;
     color: #000;
     margin: 0 0 10px 0;
     text-transform: uppercase;
     line-height: 1;
+    /* Prevent words from breaking the layout */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Add this Media Query at the bottom of your verify.css */
+@media (max-width: 480px) {
+    .verify-container {
+        padding: 2.5rem 1.5rem; /* Reduce side padding to give text more room */
+        width: 95%; /* Allow container to be wider on tiny screens */
+    }
+
+    .verify-header {
+        font-size: 2rem; /* Significant shrink for mobile gadgets */
+        letter-spacing: -1px; /* Tighter letters to save space */
+    }
+
+    .verify-description {
+        font-size: 0.8rem;
+    }
 }
 
 .verify-description {
