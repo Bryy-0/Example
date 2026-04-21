@@ -462,8 +462,8 @@ body {
     max-width: 650px;
     margin-top: 50px;
     text-align: center;
-    color: #2C2C2C;
-    background: #76BCAD; /* Subtle glass effect */
+    color: var(--off-white);
+    background: #ED7859; /* Subtle glass effect */
     padding: 30px;
     border-radius: 15px;
     backdrop-filter: blur(5px);
@@ -472,7 +472,7 @@ body {
 
 .campaign-info h3 {
     margin-top: 0;
-    color: #e97451; /* Match your coral theme */
+    color: var(--dark-charcoal); /* Match your coral theme */
     font-size: 2.2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
