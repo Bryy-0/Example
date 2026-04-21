@@ -96,6 +96,21 @@ function toggleMenu() {
 // --- Donation Logic ---
 function addDonation() {
     const donationUrl = "https://paymongo.page/l/projectclimb";
+    
+    // 1. Open the payment page in a new tab so the user doesn't leave your app
     window.open(donationUrl, '_blank');
+
+    // 2. DO NOT redirect here. 
+    // Instead, you could show a "Confirming Payment..." message 
+    // or simply let the user stay on the dashboard until they are done.
+    console.log("Payment window opened. Redirection paused until confirmation.");
+}
+
+/**
+ * Optional: Call this function only AFTER a successful database 
+ * update or via a "Check Transaction" button.
+ */
+function confirmAndRedirect() {
+    // Only trigger this once you have verified the data in Supabase
     window.location.href = "redirect.html";
 }
