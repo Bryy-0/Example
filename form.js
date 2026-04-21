@@ -8,12 +8,16 @@ const supabaseClient = supabase.createClient(_supabaseUrl, _supabaseAnonKey);
 function showForm(formId) {
     document.querySelectorAll('.form-box').forEach(box => box.classList.remove('active'));
     document.getElementById(formId).classList.add('active');
-    
-    // Clear any existing error messages when switching forms
+
     const loginErr = document.getElementById('login-error');
     const regErr = document.getElementById('register-error');
     if (loginErr) loginErr.style.display = 'none';
     if (regErr) regErr.style.display = 'none';
+
+    const savedName = sessionStorage.getItem('userName');
+    if (savedName) {
+        document.getElementById('user-display-name').textContent = savedName.toUpperCase();
+    }
 }
 
 // --- 📝 REGISTRATION LOGIC ---
@@ -24,37 +28,30 @@ if (registerForm) {
         const errorBox = document.getElementById('register-error');
         errorBox.style.display = 'none';
 
-        const name = document.getElementById('name').value;
+        const name = document.getElementById('name').value.trim(); // Trimmed
         const email = document.getElementById('email-reg').value;
         const phone = document.getElementById('phone').value;
         const plainPassword = document.getElementById('password-reg').value;
 
         try {
-            // Hash the password
             const salt = dcodeIO.bcrypt.genSaltSync(10);
             const hashedPassword = dcodeIO.bcrypt.hashSync(plainPassword, salt);
 
             const { error } = await supabaseClient
                 .from('donors')
-                .insert([
-                    { 
-                        name: name, 
-                        email: email, 
-                        phone_number: phone, 
-                        password: hashedPassword, 
-                        total_saved: 0 
-                    }
-                ]);
+                .insert([{
+                    name: name,
+                    email: email,
+                    phone_number: phone,
+                    password: hashedPassword,
+                    total_saved: 0
+                }]);
 
             if (error) {
                 errorBox.style.display = 'block';
-                if (error.code === "23505" || error.message.includes("unique")) {
-                    errorBox.textContent = "This email is already registered.";
-                } else {
-                    errorBox.textContent = "Error: " + error.message;
-                }
+                errorBox.textContent = (error.code === "23505") ? "This email is already registered." : error.message;
             } else {
-                // Success: Store name for the Welcome message and redirect
+                // Success: This name is what home.html will pull
                 sessionStorage.setItem('userName', name);
                 window.location.href = "home.html";
             }
@@ -89,11 +86,8 @@ if (loginForm) {
         }
 
         try {
-            // Compare hash
-            const isPasswordCorrect = dcodeIO.bcrypt.compareSync(inputPassword, user.password);
-
-            if (isPasswordCorrect) {
-                // IMPORTANT: Save the name here so home.html can say Welcome!
+            if (dcodeIO.bcrypt.compareSync(inputPassword, user.password)) {
+                // Save name for the "Welcome" display
                 sessionStorage.setItem('userName', user.name);
                 window.location.href = "home.html";
             } else {
