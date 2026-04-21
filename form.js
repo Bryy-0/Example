@@ -10,85 +10,99 @@ function showForm(formId) {
     document.getElementById(formId).classList.add('active');
     
     // Clear any existing error messages when switching forms
-    document.getElementById('login-error').style.display = 'none';
-    document.getElementById('register-error').style.display = 'none';
+    const loginErr = document.getElementById('login-error');
+    const regErr = document.getElementById('register-error');
+    if (loginErr) loginErr.style.display = 'none';
+    if (regErr) regErr.style.display = 'none';
 }
 
 // --- 📝 REGISTRATION LOGIC ---
 const registerForm = document.querySelector('#register-form form');
-registerForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const errorBox = document.getElementById('register-error');
-    errorBox.style.display = 'none'; // Reset error box
+if (registerForm) {
+    registerForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const errorBox = document.getElementById('register-error');
+        errorBox.style.display = 'none';
 
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email-reg').value;
-    const phone = document.getElementById('phone').value;
-    const plainPassword = document.getElementById('password-reg').value;
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email-reg').value;
+        const phone = document.getElementById('phone').value;
+        const plainPassword = document.getElementById('password-reg').value;
 
-    // Hash the password
-    const salt = dcodeIO.bcrypt.genSaltSync(10);
-    const hashedPassword = dcodeIO.bcrypt.hashSync(plainPassword, salt);
+        try {
+            // Hash the password
+            const salt = dcodeIO.bcrypt.genSaltSync(10);
+            const hashedPassword = dcodeIO.bcrypt.hashSync(plainPassword, salt);
 
-    const { error } = await supabaseClient
-        .from('donors')
-        .insert([
-            { 
-                name: name, 
-                email: email, 
-                phone_number: phone, 
-                password: hashedPassword, 
-                total_saved: 0 
+            const { error } = await supabaseClient
+                .from('donors')
+                .insert([
+                    { 
+                        name: name, 
+                        email: email, 
+                        phone_number: phone, 
+                        password: hashedPassword, 
+                        total_saved: 0 
+                    }
+                ]);
+
+            if (error) {
+                errorBox.style.display = 'block';
+                if (error.code === "23505" || error.message.includes("unique")) {
+                    errorBox.textContent = "This email is already registered.";
+                } else {
+                    errorBox.textContent = "Error: " + error.message;
+                }
+            } else {
+                // Success: Store name for the Welcome message and redirect
+                sessionStorage.setItem('userName', name);
+                window.location.href = "home.html";
             }
-        ]);
-
-    if (error) {
-        errorBox.style.display = 'block';
-        // Handle specific Supabase/PostgreSQL error codes
-        if (error.message.includes("unique_violation") || error.code === "23505") {
-            errorBox.textContent = "This email is already registered.";
-        } else {
-            errorBox.textContent = "Registration failed. Please check your connection.";
+        } catch (err) {
+            errorBox.style.display = 'block';
+            errorBox.textContent = "Something went wrong. Please try again.";
         }
-    } else {
-        sessionStorage.setItem('userName', name);
-        window.location.href = "home.html";
-    }
-});
+    });
+}
 
 // --- 🔑 LOGIN LOGIC ---
 const loginForm = document.querySelector('#login-form form');
-loginForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const errorBox = document.getElementById('login-error');
-    errorBox.style.display = 'none'; // Reset error box
+if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const errorBox = document.getElementById('login-error');
+        errorBox.style.display = 'none';
 
-    const email = document.getElementById('email').value;
-    const inputPassword = document.getElementById('password').value;
+        const email = document.getElementById('email').value;
+        const inputPassword = document.getElementById('password').value;
 
-    // Fetch user by email
-    const { data: user, error } = await supabaseClient
-        .from('donors')
-        .select('*')
-        .eq('email', email)
-        .single();
+        const { data: user, error } = await supabaseClient
+            .from('donors')
+            .select('*')
+            .eq('email', email)
+            .single();
 
-    // Check if user exists
-    if (error || !user) {
-        errorBox.style.display = 'block';
-        errorBox.textContent = "No account found with this email.";
-        return;
-    }
+        if (error || !user) {
+            errorBox.style.display = 'block';
+            errorBox.textContent = "No account found with this email.";
+            return;
+        }
 
-    // Compare hash
-    const isPasswordCorrect = dcodeIO.bcrypt.compareSync(inputPassword, user.password);
+        try {
+            // Compare hash
+            const isPasswordCorrect = dcodeIO.bcrypt.compareSync(inputPassword, user.password);
 
-    if (isPasswordCorrect) {
-        sessionStorage.setItem('userName', user.name);
-        window.location.href = "home.html";
-    } else {
-        // Wrong password
-        errorBox.style.display = 'block';
-        errorBox.textContent = "Incorrect password. Please try again.";
-    }
-});
+            if (isPasswordCorrect) {
+                // IMPORTANT: Save the name here so home.html can say Welcome!
+                sessionStorage.setItem('userName', user.name);
+                window.location.href = "home.html";
+            } else {
+                errorBox.style.display = 'block';
+                errorBox.textContent = "Incorrect password. Please try again.";
+            }
+        } catch (err) {
+            errorBox.style.display = 'block';
+            errorBox.textContent = "Login failed. Check your password format.";
+        }
+    });
+}
