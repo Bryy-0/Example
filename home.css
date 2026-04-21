@@ -628,7 +628,7 @@ body {
 
 .footer-content {
     /* INCREASED WIDTH HERE */
-    max-width: 1100px; 
+    max-width: 2000px; 
     margin: 0 auto;
     padding: 0 40px; /* Adds a small safety gap so it doesn't touch the screen edge on smaller monitors */
     
