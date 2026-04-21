@@ -463,7 +463,7 @@ body {
     margin-top: 50px;
     text-align: center;
     color: #2C2C2C;
-    background: rgba(255, 255, 255, 0.3); /* Subtle glass effect */
+    background: #76BCAD; /* Subtle glass effect */
     padding: 30px;
     border-radius: 15px;
     backdrop-filter: blur(5px);
