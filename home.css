@@ -5,7 +5,7 @@ body {
 
 /* Global Variables for consistency */
 :root {
-    --coral: #FAF2F0;
+    --coral: #ED7859;
     --dark-charcoal: #2F2F2F;
     --teal: #76BCAD;
     --off-white: #FDF7F5;
@@ -28,7 +28,7 @@ body {
     align-items: center;
     min-height: 100vh;
     box-sizing: border-box;
-    background-color: #ED7859; /* Base Cream Color */
+    background-color: #FAF2F0; /* Base Cream Color */
     position: relative;
     overflow-x: hidden;
 }
