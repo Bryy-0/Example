@@ -607,11 +607,13 @@ body {
     cursor: pointer;
     box-shadow: 6px 6px 0px var(--dark-charcoal);
     transition: 0.2s;
+    text-decoration: none;
 }
 
 .climb-btn:hover {
     transform: translate(-3px, -3px);
     box-shadow: 9px 9px 0px var(--dark-charcoal);
+    text-decoration: none;
 }
 
 /* Footer Styling */
