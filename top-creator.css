@@ -9,14 +9,14 @@
 
 /* 1. Page & Layout Reset */
 .dashboard-body {
-    /* Updated to Poppins Only */
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Hansief', 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 60px 20px;
     margin: 0;
+    /* Animated background is inherited from home.css */
 }
 
 /* 2. Leaderboard Container */
@@ -26,20 +26,19 @@
     background: #FFF;
     padding: 25px 15px 15px 15px;
     border-radius: 12px;
-    border: 4px solid #000; 
+    border: 4px solid #000; /* Matching the "Heavy Border" theme */
     position: relative;
     box-sizing: border-box;
     text-align: center;
-    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1); /* Consistent with your forms */
 }
 
 /* 3. Typography */
 .leaderboard-header {
-    /* Updated to Poppins Only */
     font-family: 'Poppins', sans-serif;
     font-size: 3rem;
     color: var(--brand-coral);
-    font-weight: 900; /* Keeping it heavy for the sticker look */
+    font-weight: 900;
     margin: 0 0 1.5rem 0;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -51,9 +50,7 @@
     border-collapse: collapse;
     border: 3.5px solid #000;
     table-layout: fixed;
-    overflow: hidden;
-    /* Ensuring the table uses the correct font */
-    font-family: 'Poppins', sans-serif;
+    overflow: hidden; /* Keeps corner radius clean if added */
 }
 
 /* Column Borders */
@@ -68,7 +65,7 @@
     background-color: var(--brand-coral);
     color: #FFF;
     text-transform: uppercase;
-    font-weight: 800; /* Stronger weight for Poppins */
+    font-weight: bold;
     border-bottom: 3.5px solid #000;
     padding: 12px;
 }
@@ -79,7 +76,7 @@
 /* 6. Body Styling */
 .leaderboard-table tbody td {
     font-size: 1.1rem;
-    font-weight: 600; /* Semi-bold for readability */
+    font-weight: bold;
     color: #000;
     padding: 15px;
     background-color: var(--leaderboard-cream);
@@ -92,38 +89,14 @@
     background-color: #F7EAE4;
 }
 
-/* Update the main table styling to ensure strict column widths */
-.leaderboard-table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 3.5px solid #000;
-    /* This is the magic property that forces widths to stay consistent */
-    table-layout: fixed; 
-}
-
-/* 7. Footer (User's Rank) Styling - THE FINAL FIX */
+/* 7. Footer (User's Rank) Styling */
 .footer-row td {
-    background-color: var(--leaderboard-green) !important;
-    color: #000;
-    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
     font-weight: 900;
-    padding: 15px 5px;
-    text-transform: uppercase;
-    font-size: 0.9rem; /* Slightly smaller to ensure no wrapping */
-    border-top: 3.5px solid #000;
-    vertical-align: middle;
-    text-align: center;
-}
-
-/* Force the first footer cell to be exactly 30% width */
-.footer-row td:nth-child(1) {
-    width: 30%;
-    border-right: 3.5px solid #000;
-}
-
-/* Force the second footer cell to be exactly 70% width */
-.footer-row td:nth-child(2) {
-    width: 70%;
+    padding: 18px;
+    color: #000;
+    background-color: var(--leaderboard-green);
+    border-top: 2px solid #000; /* Extra separation */
 }
 
 /* 8. Floating Avatars (Sticker Effect) */
@@ -140,12 +113,12 @@
 }
 
 .floating-avatar.top {
-    top: -20px;
+    top: -20px; /* Popping out of the container slightly */
     right: 30px;
 }
 
 .floating-avatar.middle {
     top: 50%;
-    left: -25px;
+    left: -25px; /* Popping out of the left side */
     transform: translateY(-50%);
 }
