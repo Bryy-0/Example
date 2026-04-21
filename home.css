@@ -730,7 +730,7 @@ body {
     background-color: var(--coral);
     color: white;
     font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
+    font-size: 1.3rem;
     padding: 15px 50px;
     border: 3px solid var(--dark-charcoal);
     border-radius: 20px;
