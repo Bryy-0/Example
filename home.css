@@ -311,3 +311,53 @@ body {
     align-items: center;
     flex-wrap: wrap;
 }
+
+/* --- 1. HAMBURGER & SIDEBAR FIX --- */
+.menu-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2000; /* Increased to ensure it stays above everything */
+}
+
+.hamburger span {
+    display: block;
+    height: 4px; /* Slightly thicker for better visibility */
+    width: 30px;
+    background-color: var(--dark-charcoal);
+    border-radius: 3px;
+    margin-bottom: 5px; /* Ensure spacing between bars */
+    transition: 0.3s;
+}
+
+/* --- 2. GLASS CARD DESCRIPTION FIX --- */
+.campaign-info {
+    max-width: 650px;
+    margin: 50px auto; /* Centering the card */
+    text-align: center;
+    color: var(--dark-charcoal); /* Changed to dark for readability on light glass */
+    
+    /* Change background to semi-transparent RGBA for glass effect */
+    background: rgba(255, 255, 255, 0.2); 
+    
+    padding: 30px;
+    border-radius: 25px;
+    
+    /* This creates the blur effect through the card */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    
+    /* Added a subtle border to define the glass edges */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    line-height: 1.6;
+    z-index: 2;
+}
+
+/* Ensure the title inside the glass card pops */
+.campaign-info h3 {
+    margin-top: 0;
+    color: var(--coral);
+    font-size: 2rem;
+    font-weight: 800; /* Bold Poppins */
+    text-transform: uppercase;
+}
