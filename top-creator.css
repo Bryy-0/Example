@@ -89,14 +89,38 @@
     background-color: #F7EAE4;
 }
 
-/* 7. Footer (User's Rank) Styling */
+/* 7. Footer (User's Rank) Styling - FORCED ALIGNMENT */
+
+/* Force the row to behave like a table row */
+.footer-row {
+    display: table-row !important;
+    width: 100% !important;
+}
+
 .footer-row td {
-    font-size: 1.1rem;
-    font-weight: 900;
-    padding: 18px;
-    color: #000;
-    background-color: var(--leaderboard-green);
-    border-top: 2px solid #000; /* Extra separation */
+    /* Force the cells to behave like table cells and stay side-by-side */
+    display: table-cell !important;
+    background-color: var(--leaderboard-green) !important;
+    color: #000 !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 900 !important;
+    padding: 15px 5px !important;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border-top: 3.5px solid #000 !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+/* Match the exact 30% width of the 'Ranking' column */
+.footer-row td:nth-child(1) {
+    width: 30% !important;
+    border-right: 3.5px solid #000 !important;
+}
+
+/* Match the exact 70% width of the 'Name' column */
+.footer-row td:nth-child(2) {
+    width: 70% !important;
 }
 
 /* 8. Floating Avatars (Sticker Effect) */
