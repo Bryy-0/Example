@@ -9,7 +9,7 @@
 
 /* 1. Page & Layout Reset */
 .dashboard-body {
-    font-family: 'Hansief', 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
