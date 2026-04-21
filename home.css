@@ -28,7 +28,8 @@ body {
     align-items: center;
     min-height: 100vh;
     box-sizing: border-box;
-    background-color: #FAF2F0; /* Base Cream Color */
+    background-color: #FAF2F0;
+    /* Base Cream Color */
     position: relative;
     overflow-x: hidden;
 }
@@ -55,28 +56,115 @@ body {
 }
 
 /* Randomization for 10 coins */
-.falling-coin:nth-child(1) { left: 5%;  animation-duration: 8s;  animation-delay: 0s;   transform: scale(0.8); }
-.falling-coin:nth-child(2) { left: 15%; animation-duration: 12s; animation-delay: 2s;   transform: scale(1.2); }
-.falling-coin:nth-child(3) { left: 25%; animation-duration: 10s; animation-delay: 5s;   transform: scale(0.9); }
-.falling-coin:nth-child(4) { left: 40%; animation-duration: 15s; animation-delay: 1s;   transform: scale(1.1); }
-.falling-coin:nth-child(5) { left: 55%; animation-duration: 9s;  animation-delay: 4s;   transform: scale(0.7); opacity: 0.6; }
-.falling-coin:nth-child(6) { left: 70%; animation-duration: 11s; animation-delay: 7s;   transform: scale(1.3); }
-.falling-coin:nth-child(7) { left: 85%; animation-duration: 14s; animation-delay: 0.5s; transform: scale(1.0); }
-.falling-coin:nth-child(8) { left: 95%; animation-duration: 10s; animation-delay: 3s;   transform: scale(0.8); }
-.falling-coin:nth-child(9) { left: 33%; animation-duration: 13s; animation-delay: 6s;   transform: scale(1.1); opacity: 0.8; }
-.falling-coin:nth-child(10){ left: 66%; animation-duration: 12s; animation-delay: 8s;   transform: scale(0.9); }
-.falling-coin:nth-child(11){ left: 66%; animation-duration: 12s; animation-delay: 9s;   transform: scale(0.9); }
-.falling-coin:nth-child(12){ left: 66%; animation-duration: 12s; animation-delay: 3s;   transform: scale(0.9); }
-.falling-coin:nth-child(13){ left: 66%; animation-duration: 12s; animation-delay: 6s;   transform: scale(0.9); opacity: 0.6; }
+.falling-coin:nth-child(1) {
+    left: 5%;
+    animation-duration: 8s;
+    animation-delay: 0s;
+    transform: scale(0.8);
+}
+
+.falling-coin:nth-child(2) {
+    left: 15%;
+    animation-duration: 12s;
+    animation-delay: 2s;
+    transform: scale(1.2);
+}
+
+.falling-coin:nth-child(3) {
+    left: 25%;
+    animation-duration: 10s;
+    animation-delay: 5s;
+    transform: scale(0.9);
+}
+
+.falling-coin:nth-child(4) {
+    left: 40%;
+    animation-duration: 15s;
+    animation-delay: 1s;
+    transform: scale(1.1);
+}
+
+.falling-coin:nth-child(5) {
+    left: 55%;
+    animation-duration: 9s;
+    animation-delay: 4s;
+    transform: scale(0.7);
+    opacity: 0.6;
+}
+
+.falling-coin:nth-child(6) {
+    left: 70%;
+    animation-duration: 11s;
+    animation-delay: 7s;
+    transform: scale(1.3);
+}
+
+.falling-coin:nth-child(7) {
+    left: 85%;
+    animation-duration: 14s;
+    animation-delay: 0.5s;
+    transform: scale(1.0);
+}
+
+.falling-coin:nth-child(8) {
+    left: 95%;
+    animation-duration: 10s;
+    animation-delay: 3s;
+    transform: scale(0.8);
+}
+
+.falling-coin:nth-child(9) {
+    left: 33%;
+    animation-duration: 13s;
+    animation-delay: 6s;
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.falling-coin:nth-child(10) {
+    left: 66%;
+    animation-duration: 12s;
+    animation-delay: 8s;
+    transform: scale(0.9);
+}
+
+.falling-coin:nth-child(11) {
+    left: 66%;
+    animation-duration: 12s;
+    animation-delay: 9s;
+    transform: scale(0.9);
+}
+
+.falling-coin:nth-child(12) {
+    left: 66%;
+    animation-duration: 12s;
+    animation-delay: 3s;
+    transform: scale(0.9);
+}
+
+.falling-coin:nth-child(13) {
+    left: 66%;
+    animation-duration: 12s;
+    animation-delay: 6s;
+    transform: scale(0.9);
+    opacity: 0.6;
+}
 
 @keyframes drop {
-    0% { transform: translateY(0) rotate(0deg); top: -100px; }
-    100% { transform: translateY(110vh) rotate(360deg); }
+    0% {
+        transform: translateY(0) rotate(0deg);
+        top: -100px;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+    }
 }
 
 /* --- NEW DONATION CARD LAYOUT --- */
 .donation-card {
-    background-color: var(--coral); /* #ED7859 from your variables */
+    background-color: var(--coral);
+    /* #ED7859 from your variables */
     width: 100%;
     max-width: 700px;
     border-radius: 40px;
@@ -137,14 +225,16 @@ body {
 
 /* --- JAR POSITIONING --- */
 .card-right {
-    flex: 0 0 200px; /* Fixed width for the jar */
+    flex: 0 0 200px;
+    /* Fixed width for the jar */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .jar-container {
-    width: 160px; /* Slightly smaller to fit the card */
+    width: 160px;
+    /* Slightly smaller to fit the card */
     height: 220px;
     background: #FFFFFF;
     border: 4px solid #2F2F2F;
@@ -201,15 +291,17 @@ body {
 .welcome-text {
     font-family: 'Poppins', sans-serif;
     color: #000;
-    font-size: 3rem; /* Larger font */
+    font-size: 3rem;
+    /* Larger font */
     margin: 20px 0 5px 0;
     text-transform: uppercase;
     /* Give it a slight shadow to pop off the animated background */
-    text-shadow: 3px 3px 0px #bdbdbd; 
+    text-shadow: 3px 3px 0px #bdbdbd;
 }
 
 .brand-subtext {
-    background: #ffdfbe; /* Put the subtext in a black pill for contrast */
+    background: #ffdfbe;
+    /* Put the subtext in a black pill for contrast */
     color: #FFF;
     display: inline-block;
     padding: 5px 15px;
@@ -274,7 +366,8 @@ body {
 
 .progress-bar-fill {
     background: var(--coral);
-    width: 15%; /* Change this to simulate progress */
+    width: 15%;
+    /* Change this to simulate progress */
     height: 100%;
     border-radius: 5px;
 }
@@ -342,7 +435,8 @@ body {
     display: block;
     height: 3px;
     width: 100%;
-    background-color: #2C2C2C; /* Match your dark border color */
+    background-color: #2C2C2C;
+    /* Match your dark border color */
     border-radius: 3px;
     transition: 0.3s;
 }
@@ -351,10 +445,12 @@ body {
 .side-menu {
     position: fixed;
     top: 0;
-    left: -300px; /* Hidden by default */
+    left: -300px;
+    /* Hidden by default */
     width: 280px;
     height: 100%;
-    background-color: #FDF7F5; /* Match your card background */
+    background-color: #FDF7F5;
+    /* Match your card background */
     border-right: 3px solid #2C2C2C;
     z-index: 1000;
     transition: 0.4s ease-in-out;
@@ -365,7 +461,8 @@ body {
 }
 
 .side-menu.active {
-    left: 0; /* Slides in */
+    left: 0;
+    /* Slides in */
 }
 
 /* Menu List Items */
@@ -395,7 +492,8 @@ body {
 /* Verify Now Button Styling */
 .verify-btn {
     display: block;
-    background-color: #ED7859; /* Coral color */
+    background-color: #ED7859;
+    /* Coral color */
     color: white !important;
     text-align: center;
     padding: 12px;
@@ -412,29 +510,37 @@ body {
 .hamburger.open span:nth-child(1) {
     transform: translateY(8.5px) rotate(45deg);
 }
+
 .hamburger.open span:nth-child(2) {
     opacity: 0;
 }
+
 .hamburger.open span:nth-child(3) {
     transform: translateY(-8.5px) rotate(-45deg);
 }
+
 /* Sidebar Logout Button - Full Width */
 .logout-btn {
     width: 100%;
     padding: 12px;
-    background-color: #2F2F2F; /* Dark Charcoal */
-    color: #FFFFFF; /* White text */
-    border: 2px solid #2C2C2C; /* Dark border */
+    background-color: #2F2F2F;
+    /* Dark Charcoal */
+    color: #FFFFFF;
+    /* White text */
+    border: 2px solid #2C2C2C;
+    /* Dark border */
     border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
     font-size: 1rem;
     transition: all 0.2s ease;
-    margin-top: auto; /* Pushes to bottom of flex container */
+    margin-top: auto;
+    /* Pushes to bottom of flex container */
 }
 
 .logout-btn:hover {
-    background-color: #ED7859; /* Changes to Coral on hover */
+    background-color: #ED7859;
+    /* Changes to Coral on hover */
     border-color: #2F2F2F;
     transform: translateY(-2px);
 }
@@ -460,19 +566,30 @@ body {
 /* Styling for the new description */
 .campaign-info {
     max-width: 650px;
-    margin-top: 50px;
+    /* Added 80px margin at the top to create space from the button */
+    /* Added 'auto' to left/right to ensure the card is centered */
+    margin: 80px auto 50px auto;
+
     text-align: center;
-    color: var(--off-white);
-    background: #ED7859; /* Subtle glass effect */
+    color: #FFFFFF;
+    /* White text looks sharp on the coral background */
+    background: #ED7859;
     padding: 30px;
-    border-radius: 15px;
-    backdrop-filter: blur(5px);
+    border-radius: 20px;
     line-height: 1.6;
+
+    /* Ensure it sits above the background coins */
+    position: relative;
+    z-index: 2;
+
+    /* Optional: Hard shadow to match your buttons */
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
 .campaign-info h3 {
     margin-top: 0;
-    color: var(--dark-charcoal); /* Match your coral theme */
+    color: var(--dark-charcoal);
+    /* Match your coral theme */
     font-size: 2.2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -482,6 +599,7 @@ body {
     font-size: 1rem;
     margin: 0;
 }
+
 /* Jar Visualization Styles */
 .jar-lid {
     width: 120px;
@@ -502,11 +620,13 @@ body {
     border-radius: 30px 30px 50px 50px;
     margin: 0 auto 20px auto;
     position: relative;
-    overflow: hidden; /* This MUST stay here to clip the liquid */
+    overflow: hidden;
+    /* This MUST stay here to clip the liquid */
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1; /* Add this */
+    z-index: 1;
+    /* Add this */
 }
 
 .jar-fill {
@@ -517,12 +637,14 @@ body {
     /* Remove height: 0% here, PHP will handle it inline */
     background-color: #76BCAD;
     transition: height 0.6s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-    z-index: 2; /* Sit above the container background */
+    z-index: 2;
+    /* Sit above the container background */
 }
 
 .jar-content {
     position: relative;
-    z-index: 3; /* Sit above the teal liquid */
+    z-index: 3;
+    /* Sit above the teal liquid */
     font-size: 2rem;
     font-weight: 900;
     color: #000;
@@ -547,7 +669,8 @@ body {
 }
 
 .badge-dot.active {
-    background: #76BCAD; /* The teal color from your jar */
+    background: #76BCAD;
+    /* The teal color from your jar */
     border-color: #000;
     /* Subtle pop effect when it lights up */
     transform: scale(1.1);
@@ -561,22 +684,28 @@ body {
     border: 2px solid #000 !important;
     padding: 15px !important;
 }
+
 /* Container to help with spacing above Logout */
 .social-section {
-    margin-top: auto; /* Pushes the section toward the bottom */
-    margin-bottom: 10px; /* Space between Follow and Logout */
+    margin-top: auto;
+    /* Pushes the section toward the bottom */
+    margin-bottom: 10px;
+    /* Space between Follow and Logout */
     width: 100%;
 }
 
 /* Follow Us Button Style */
 .follow-btn {
     display: block;
-    background-color: #FFFFFF; /* White background to contrast with Logout */
-    color: #2F2F2F !important; /* Dark Charcoal text */
+    background-color: #FFFFFF;
+    /* White background to contrast with Logout */
+    color: #2F2F2F !important;
+    /* Dark Charcoal text */
     text-align: center;
     padding: 12px;
     border-radius: 8px;
-    border: 2px solid #2C2C2C; /* Dark border to match your UI */
+    border: 2px solid #2C2C2C;
+    /* Dark border to match your UI */
     font-weight: bold;
     text-decoration: none;
     font-size: 1rem;
@@ -584,10 +713,11 @@ body {
 }
 
 .follow-btn:hover {
-    background-color: #76BCAD; /* Changes to Teal on hover (matching your jar fill) */
+    background-color: #76BCAD;
+    /* Changes to Teal on hover (matching your jar fill) */
     color: #FFFFFF !important;
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* CTA Button Styling */
@@ -618,9 +748,10 @@ body {
 
 /* Footer Styling */
 .main-footer {
-    background-color: #ED7859; 
+    background-color: #ED7859;
     color: white;
-    padding: 40px 0; /* Removed side padding here to let the container handle it */
+    padding: 40px 0;
+    /* Removed side padding here to let the container handle it */
     text-align: center;
     margin-top: 50px;
     width: 100%;
@@ -628,10 +759,11 @@ body {
 
 .footer-content {
     /* INCREASED WIDTH HERE */
-    max-width: 1100px; 
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 20px; /* Adds a small safety gap so it doesn't touch the screen edge on smaller monitors */
-    
+    padding: 0 20px;
+    /* Adds a small safety gap so it doesn't touch the screen edge on smaller monitors */
+
     /* Layout fix to spread items out */
     display: flex;
     flex-direction: column;
