@@ -1,0 +1,75 @@
+.transaction-container {
+    max-width: 1000px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.transaction-table th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #f0f0f0;
+    color: #888;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.transaction-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f9f9f9;
+    font-size: 0.95rem;
+}
+
+.status-pill {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #e6f9ed;
+    color: #2ecc71;
+}
+
+.amount-text {
+    font-weight: 600;
+    color: #2ecc71;
+}
+
+.back-nav {
+    margin-bottom: 20px;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    /* Removes underline */
+    color: #ED7859;
+    /* Brand Orange */
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.btn-back:hover {
+    color: #d6684a;
+    /* Slightly darker on hover */
+}
+
+.btn-back .arrow {
+    margin-right: 8px;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-back:hover .arrow {
+    transform: translateX(-5px);
+    /* Small animation to the left */
+}
