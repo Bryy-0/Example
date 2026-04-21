@@ -35,9 +35,7 @@
             <a href="https://www.facebook.com/createfoundationph" target="_blank" class="follow-btn">FOLLOW US</a>
         </div>
         <div class="menu-footer">
-            <a href="index.html" style="text-decoration: none; width: 100%;">
-                <button type="button" class="logout-btn">Logout</button>
-            </a>
+            <button type="button" class="logout-btn" onclick="sessionStorage.clear(); window.location.href='index.html'">Logout</button>
         </div>
     </nav>
 
@@ -47,67 +45,28 @@
         <table class="leaderboard-table">
             <thead>
                 <tr>
-                    <th class="header-main coral" colspan="1">Total Community Collection</th>
-                    <th class="header-main coral" colspan="1">No. of Users</th>
+                    <th class="header-main coral" id="total-collection">Total Community Collection: <br>₱0.00</th>
+                    <th class="header-main coral" id="user-count">No. of Users: <br>0</th>
                 </tr>
                 <tr>
-                    <th class="header-sub" colspan="1">Ranking</th>
-                    <th class="header-sub" colspan="1">Name</th>
+                    <th class="header-sub">Ranking</th>
+                    <th class="header-sub">Name</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Creator One</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Creator Two</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Creator Three</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Creator Four</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Creator Five</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Creator Six</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Creator Seven</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Creator Eight</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Creator Nine</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Creator Ten</td>
-                </tr>
-            </tbody>
+            <tbody id="leaderboard-body">
+                </tbody>
             <tfoot>
                 <tr class="footer-row">
-                    <td>YOUR RANKING</td>
-                    <td>Creator [Name]</td>
+                    <td id="user-rank">YOUR RANKING: --</td>
+                    <td id="current-user-name">CREATOR [NAME]</td>
                 </tr>
             </tfoot>
         </table>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="top-creator.js"></script>
     <script>
-        // Menu toggle script (Matching home.html)
         function toggleMenu() {
             const menu = document.getElementById('side-menu');
             const icon = document.getElementById('hamburger-icon');
@@ -116,5 +75,4 @@
         }
     </script>
 </body>
-
 </html>
