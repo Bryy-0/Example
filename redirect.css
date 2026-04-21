@@ -1,3 +1,4 @@
+/* Redirect Page Styles */
 body {
     background-color: #F5EFEB;
     /* Matching the light cream background */
@@ -6,9 +7,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    font-family: 'Arial Black', Gadget, sans-serif;
-    /* Adjust font as needed */
-    font-family: 'Hansief', 'Poppins', 'Arial Black', sans-serif;
+    /* Updated: supervisor's preference for Poppins only */
+    font-family: 'Poppins', sans-serif;
     text-align: center;
 }
 
@@ -23,6 +23,8 @@ body {
     text-transform: uppercase;
     margin-bottom: 10px;
     letter-spacing: 1px;
+    /* Explicit weight for that bold impact */
+    font-weight: 800; 
 }
 
 .redirect-text {
@@ -30,7 +32,7 @@ body {
     font-size: 1.2rem;
     text-transform: uppercase;
     margin-bottom: 30px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .checkmark-circle {

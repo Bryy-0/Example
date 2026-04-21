@@ -6,9 +6,10 @@
     --off-white: #FDF7F5;
 }
 
-/* Basic Reset & Font Fallback */
+/* Basic Reset & Font Update */
 body {
-    font-family: 'Hansief', 'Poppins', Arial, sans-serif;
+    /* Updated to Poppins Only */
+    font-family: 'Poppins', sans-serif;
     background-color: #f9f0eb;
     display: flex;
     justify-content: center;
@@ -23,9 +24,9 @@ body {
     max-width: 450px;
     padding: 35px;
     background: var(--coral);
-    border: 3px solid var(--dark-charcoal); /* Matches your jar/button style */
+    border: 3px solid var(--dark-charcoal); 
     border-radius: 20px;
-    box-shadow: 8px 8px 0px rgba(0,0,0,0.1); /* Flat depth shadow */
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.1); 
     display: none;
     box-sizing: border-box;
 }
@@ -38,6 +39,8 @@ body {
 h2 {
     text-align: center;
     color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800; /* Extra bold for the heading */
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-top: 0;
@@ -47,7 +50,7 @@ h2 {
 label {
     display: block;
     margin-bottom: 8px;
-    font-weight: bold;
+    font-weight: 600; /* Semi-bold */
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
@@ -64,6 +67,8 @@ input[type="password"] {
     border-radius: 8px;
     box-sizing: border-box;
     background-color: var(--off-white); 
+    /* Explicitly setting Poppins for inputs */
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     color: var(--dark-charcoal);
     transition: transform 0.2s;
@@ -84,8 +89,10 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    /* Explicitly setting Poppins for buttons */
+    font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 700;
     text-transform: uppercase;
     transition: all 0.3s ease;
 }
@@ -106,7 +113,7 @@ button:hover {
     color: #D32F2F;
     text-align: center;
     margin-bottom: 20px;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 /* Helper Animation */
