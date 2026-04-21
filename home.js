@@ -7,7 +7,7 @@ const goal = 8000; // Matches your current goal
 let currentSaved = 0;
 
 window.addEventListener('DOMContentLoaded', async () => {
-    const savedName = sessionStorage.getItem('userName');
+    const savedName = sessionStorage.getItem('name');
 
     if (savedName) {
         // This finds the span we just added and changes "User" to the actual name
