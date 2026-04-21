@@ -92,34 +92,38 @@
     background-color: #F7EAE4;
 }
 
-/* 7. Footer (User's Rank) Styling - DEFINITIVE FIX */
-.footer-row {
-    background-color: var(--leaderboard-green) !important;
+/* Update the main table styling to ensure strict column widths */
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 3.5px solid #000;
+    /* This is the magic property that forces widths to stay consistent */
+    table-layout: fixed; 
 }
 
+/* 7. Footer (User's Rank) Styling - THE FINAL FIX */
 .footer-row td {
     background-color: var(--leaderboard-green) !important;
     color: #000;
     font-family: 'Poppins', sans-serif;
     font-weight: 900;
-    padding: 20px 10px; /* Increased padding for a chunkier look */
+    padding: 15px 5px;
     text-transform: uppercase;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Slightly smaller to ensure no wrapping */
     border-top: 3.5px solid #000;
     vertical-align: middle;
-    box-sizing: border-box;
+    text-align: center;
 }
 
-/* Align the vertical line with the rest of the table */
+/* Force the first footer cell to be exactly 30% width */
 .footer-row td:nth-child(1) {
-    width: 30%; /* Matches your header/body width */
+    width: 30%;
     border-right: 3.5px solid #000;
-    text-align: center;
 }
 
+/* Force the second footer cell to be exactly 70% width */
 .footer-row td:nth-child(2) {
-    width: 70%; /* Matches your header/body width */
-    text-align: center;
+    width: 70%;
 }
 
 /* 8. Floating Avatars (Sticker Effect) */
