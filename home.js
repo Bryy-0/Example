@@ -17,6 +17,9 @@ window.addEventListener('DOMContentLoaded', async () => {
         // Update the Main Welcome Heading
         const headingName = document.getElementById('user-display-name');
         if (headingName) headingName.textContent = savedName;
+
+        const donationName = document.getElementById('user-donation-name');
+        if (donationName) donationName.textContent = savedName;
         
         console.log("Both name displays updated!");
     } else {
