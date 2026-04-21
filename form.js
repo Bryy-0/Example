@@ -13,11 +13,6 @@ function showForm(formId) {
     const regErr = document.getElementById('register-error');
     if (loginErr) loginErr.style.display = 'none';
     if (regErr) regErr.style.display = 'none';
-
-    const savedName = sessionStorage.getItem('userName');
-    if (savedName) {
-        document.getElementById('user-display-name').textContent = savedName.toUpperCase();
-    }
 }
 
 // --- 📝 REGISTRATION LOGIC ---

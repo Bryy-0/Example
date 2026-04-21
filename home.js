@@ -8,9 +8,15 @@ let currentSaved = 0;
 
 window.addEventListener('DOMContentLoaded', async () => {
     const savedName = sessionStorage.getItem('userName');
-    if (!savedName) {
-        window.location.href = "form.html";
-        return;
+
+    if (savedName) {
+        // This finds the span we just added and changes "User" to the actual name
+        const nameDisplay = document.getElementById('user-display-name');
+        if (nameDisplay) {
+            nameDisplay.textContent = savedName;
+        }
+    } else {
+        window.location.href = "form.html"; // Redirect if not logged in
     }
 
     // Update greeting
