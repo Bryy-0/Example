@@ -92,14 +92,26 @@
     background-color: #F7EAE4;
 }
 
-/* 7. Footer (User's Rank) Styling */
+/* 7. Footer (User's Rank) Styling - FIXED */
 .footer-row td {
+    font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
     font-weight: 900;
-    padding: 18px;
+    padding: 18px 12px;
     color: #000;
     background-color: var(--leaderboard-green);
-    border-top: 2px solid #000;
+    border-top: 3.5px solid #000; /* Match main border thickness */
+    text-transform: uppercase;
+    
+    /* ADD THESE FIXES: */
+    vertical-align: middle; 
+    line-height: 1.2;
+    text-align: center;
+}
+
+/* Ensure the 'YOUR RANKING' cell respects the 30% width border */
+.footer-row td:nth-child(1) {
+    border-right: 3.5px solid #000;
 }
 
 /* 8. Floating Avatars (Sticker Effect) */
