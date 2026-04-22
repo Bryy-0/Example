@@ -778,3 +778,91 @@ body {
     align-items: center;
     flex-wrap: wrap;
 }
+/* The main container for the bottom bar */
+.site-footer {
+    display: flex;
+    flex-direction: row; /* Force horizontal alignment */
+    justify-content: center; /* Center the whole group */
+    align-items: center; /* Align items vertically in the middle */
+    gap: 30px; /* Space between logo, icons, and text */
+    padding: 20px;
+    background-color: var(--coral);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* The Brand Logo */
+.footer-brand-logo {
+    width: 120px; /* Adjusted for a horizontal line look */
+    height: auto;
+    margin: 0; /* Remove top/bottom margins */
+}
+
+/* The Social Icons Container */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between FB and LinkedIn */
+}
+
+.social-icons img {
+    width: 30px;
+    height: auto;
+}
+
+/* The Copyright Text */
+.copyright {
+    margin: 0; /* Remove default paragraph margins */
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+/* --- COLLAGE SECTION STYLES --- */
+
+.collage-wrapper {
+    max-width: 900px; /* Wider than campaign-info for visual variety */
+    margin: 60px auto;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.collage-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--dark-charcoal);
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.collage-grid {
+    display: grid;
+    /* This creates 2 columns of equal width */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; /* Space between the images */
+}
+
+.collage-item img {
+    width: 100%;
+    height: 300px; /* Fixed height for uniformity */
+    object-fit: cover; /* Crops image to fill the box without stretching */
+    border: 4px solid #000; /* Matching your heavy border theme */
+    border-radius: 20px;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.collage-item img:hover {
+    transform: scale(1.03) rotate(1deg); /* Fun "sticker" pop effect */
+}
+
+/* Responsive: Stack images in 1 column on mobile gadgets */
+@media (max-width: 600px) {
+    .collage-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .collage-item img {
+        height: 250px;
+    }
+}
